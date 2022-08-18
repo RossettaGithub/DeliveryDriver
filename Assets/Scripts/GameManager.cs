@@ -10,11 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]Driver car;
 
     Timer timer;
-
+AudioSource audioSource;
     void Start()
     {
         timer=GameObject.FindObjectOfType<Timer>();
-
+audioSource = GetComponent<AudioSource>();
         gameOverScreen.gameObject.SetActive(false);
         gameStartScreen.gameObject.SetActive(true);
         car.gameObject.SetActive(false);
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
    public void GameOver()
    {
         gameOverScreen.gameObject.SetActive(true);
-
+audioSource.Play();
         car.gameObject.SetActive(false);
 
         timer.SetIsPlaying(false);
